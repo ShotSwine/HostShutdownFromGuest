@@ -1,0 +1,11 @@
+#!/bin/bash
+guest_name="$1"
+libvirt_task="$2"
+libvirt_task_stage="$3"
+vm="Win10_Gaming"
+
+if [ $guest_name == $vm ] && [ $libvirt_task == "started" ] && [ $libvirt_task_stage == "begin" ]; then
+	systemctl is-active --quiet host-shutdown-watcher || systemctl start host-shutdown-watcher
+elif [ $vm == $guest_os ] && [ $libvirt_task == "release" ] && [ $libvirt_task_stage == "end" ]; then
+	systemctl is-active --quiet host-shutdown-watcher && systemctl stop host-shutdown-watcher
+fi
