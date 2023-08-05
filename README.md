@@ -6,7 +6,8 @@ Important: The VM will need to be configured with a virtual serial port.
 Usage:-
 
 - Correctly set the "vm" variable names to your target virtual machine's name in ./main.py and ./Lines to add to qemu hook file.txt
-- Place ./.venv and ./main.py in /opt/host-shutdown-watcher
+- Create a virtual environment for the python script, and install pyserial with pip
+- Place the .venv folder and ./main.py in /opt/host-shutdown-watcher
 - Place ./systemd service/host-shutdown-watcher.service in /etc/systemd/system
 - Add the contents of ./Lines to add to qemu hook file.txt into the /etc/libvirt/hooks/qemu hook file
 - In the terminal run "sudo systemctl daemon-reload"
