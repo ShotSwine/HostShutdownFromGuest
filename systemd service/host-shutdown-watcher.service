@@ -1,0 +1,11 @@
+[Unit]
+Description=This service runs the host-shutdown-watcher python file that watches for a shutdown message from a guest VM via tty and acts appropriately
+
+[Service]
+User=root
+WorkingDirectory=/opt/host-shutdown-watcher
+ExecStart=/opt/host-shutdown-watcher/.venv/bin/python /opt/host-shutdown-watcher/main.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
